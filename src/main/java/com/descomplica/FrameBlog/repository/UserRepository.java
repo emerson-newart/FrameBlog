@@ -8,5 +8,5 @@ import com.descomplica.FrameBlog.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findByUsernaame(String login);
+    User findByUsername(String login);
 } 
