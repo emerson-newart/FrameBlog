@@ -1,9 +1,8 @@
 package com.descomplica.FrameBlog.services;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
 import com.descomplica.FrameBlog.request.AuthRequest;
-
-public interface AuthenticationService extends UserDetailsService {
+import org.springframework.security.core.userdetails.UserDetailsService;
+public interface AuthenticationService extends UserDetailsService{
 
     String getToken(AuthRequest auth);
 
