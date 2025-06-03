@@ -22,6 +22,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Autowired
     private UserRepository userRepository;
 
+    // Implementação de UserDetails para buscar um usuário pelo username
+    // E pode ser gerado uma exceção caso o usuário mão seja encontrado
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException{
         return userRepository.findByUsername(login);
@@ -36,7 +38,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public  String generateToken(User user) {
         try {
             Algorithm algorithm = Algorithm.HMAC256("my-secret");
-
             return JWT.create()
                     .withIssuer("FrameBlog")
                     .withSubject(user.getUsername())

@@ -90,6 +90,8 @@ public class User implements UserDetails {
         this.role = role;
     }
 
+    // Implementações nescessárias ao implementar o UserDetails
+    // Usado com o Spring Security
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.role == RoleEnum.ADMIN) {
@@ -101,6 +103,7 @@ public class User implements UserDetails {
                 new SimpleGrantedAuthority("ROLE_USER"));
     }
 
+    // Métodos Obrigratórios
     @Override
     public boolean isAccountNonExpired() {
         return true;

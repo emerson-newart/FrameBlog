@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
         if(Objects.nonNull(existingUser)){
             throw new RuntimeException("Existing User");
         }
+        
         String passwordHash = passwordEncoder.encode(user.getPassword());
 
         User entity = new User(user.getUserId(), user.getName(), user.getEmail(), passwordHash, user.getUsername(), user.getRole());
